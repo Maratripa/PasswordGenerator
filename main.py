@@ -18,7 +18,7 @@ def generate_password(may):
     for i in random_words:
       random_words[random_words.index(i)] = random_words[random_words.index(i)].title()
   
-  password = '{digits}{punctuation}{word1}{punctuation}{word2}{punctuation}{word3}'.format(digits=random.randint(1,100), punctuation='-', word1=random_words[0], word2=random_words[1], word3=random_words[2])
+  password = '{digits}{punctuation}{word1}{punctuation}{word2}{punctuation}{word3}'.format(digits=random.randint(10,100), punctuation='-', word1=random_words[0], word2=random_words[1], word3=random_words[2])
 
   return password
 
