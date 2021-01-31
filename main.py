@@ -1,6 +1,4 @@
 import random
-import time
-import pyperclip
 
 
 word_list = []
@@ -10,11 +8,11 @@ with open('Words.txt', 'r') as file:
     word_list.append(i[:-1])
 
 
-def generate_password(may):
+def generate_password(foo):
 
   random_words = [random.choice(word_list), random.choice(word_list), random.choice(word_list)]
 
-  if may:
+  if foo:
     for i in random_words:
       random_words[random_words.index(i)] = random_words[random_words.index(i)].title()
   
@@ -23,18 +21,17 @@ def generate_password(may):
   return password
 
 
-def manage_input(string):
-  pass
-
 def run():
-  command, may = input('Enter your command: ').split()
+  raw = input('Enter your command: ')
+  raw_list = raw.split()
 
-  foo = bool(int(may))
-  print(foo)
+  options = ['random', 0]
 
-  if command == 'random':
-    password = generate_password(foo)
+  for i in raw_list:
+    options[raw_list.index(i)] = i
+
+  if options[0] == 'random':
+    password = generate_password(options[1])
     print(password)
-    
-  
+
 run()
