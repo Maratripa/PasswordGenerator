@@ -30,11 +30,11 @@ def generate_password(foo, separator, words):
   
   print(password)
 
-
+'''
 def str2bool(v):
   return v.lower() in ("true", "1")
 
-'''
+
 def run():
   raw = input('Enter your command: ')
   raw_list = raw.split()
@@ -70,6 +70,4 @@ def run():
   if raw_list[0] == 'random':
     password = generate_password(str2bool(str(options[1])), options[2], int(options[3]))
     print(password)
-
-run() 
 '''
