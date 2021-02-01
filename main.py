@@ -19,7 +19,7 @@ def generate_password(foo, separator, words):
     for i in random_words:
       random_words[random_words.index(i)] = random_words[random_words.index(i)].title()
   
-  password = '{digits}'.format(digits=random.randint(10,100))
+  password = '{digits}'.format(digits=random.randint(10,99))
 
   for i in random_words:
     password = password + '{punctuation}{word0}'.format(punctuation=separator, word0=random_words[random_words.index(i)])
@@ -37,8 +37,6 @@ def run():
 
   options = ['random', False, '-', 3]
 
-  for i in raw_list:
-    options[raw_list.index(i)] = i
   
   if len(raw_list) == 2:
     if raw_list[1] in string.punctuation:
@@ -49,24 +47,23 @@ def run():
   
   elif len(raw_list) == 3:
     if len(raw_list[1]) > 1 and raw_list[2] in string.punctuation:
-      print('caso 1')
       options[1] = raw_list[1]
       options[2] = raw_list[2]
     
     elif raw_list[1] in string.punctuation and raw_list[2] in string.digits:
-      print('caso 2')
       options[2] = raw_list[1]
       options[3] = raw_list[2]
 
     elif len(raw_list[1]) > 1 and raw_list[2] in string.digits:
-      print('caso 3')
       options[1] = raw_list[1]
       options[3] = raw_list[2]
 
-  
+  elif len(raw_list) == 4:
+    for i in raw_list:
+      options[raw_list.index(i)] = i
 
 
-  if options[0] == 'random':
+  if raw_list[0] == 'random':
     password = generate_password(str2bool(str(options[1])), options[2], int(options[3]))
     print(password)
 
