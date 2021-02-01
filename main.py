@@ -1,4 +1,5 @@
 import random
+import string
 
 
 word_list = []
@@ -38,9 +39,35 @@ def run():
 
   for i in raw_list:
     options[raw_list.index(i)] = i
+  
+  if len(raw_list) == 2:
+    if raw_list[1] in string.punctuation:
+      options[2] = raw_list[1]
+    
+    elif raw_list[1] in string.digits:
+      options[3] = raw_list[1]
+  
+  elif len(raw_list) == 3:
+    if len(raw_list[1]) > 1 and raw_list[2] in string.punctuation:
+      print('caso 1')
+      options[1] = raw_list[1]
+      options[2] = raw_list[2]
+    
+    elif raw_list[1] in string.punctuation and raw_list[2] in string.digits:
+      print('caso 2')
+      options[2] = raw_list[1]
+      options[3] = raw_list[2]
+
+    elif len(raw_list[1]) > 1 and raw_list[2] in string.digits:
+      print('caso 3')
+      options[1] = raw_list[1]
+      options[3] = raw_list[2]
+
+  
+
 
   if options[0] == 'random':
-    password = generate_password(str2bool(options[1]), options[2], int(options[3]))
+    password = generate_password(str2bool(str(options[1])), options[2], int(options[3]))
     print(password)
 
-run()
+run() 
