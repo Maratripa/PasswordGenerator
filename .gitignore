@@ -1,2 +1,5 @@
 # All text files
 *.txt
+
+# Pycache
+__pycache__
