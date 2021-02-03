@@ -1,5 +1,5 @@
 # All text files
-*.txt
+En_words.txt
 
 # Pycache
 __pycache__
