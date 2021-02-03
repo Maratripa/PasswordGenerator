@@ -18,7 +18,7 @@ You can pass up to 3 aditional arguments:
 * --words   #Choose the number of words to be generated
 
 Each one of the optional arguments has their own default value:
-* --caps - false
+* --caps = false
 * --sep = '-'
 * --words = 3
 
