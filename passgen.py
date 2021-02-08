@@ -28,7 +28,7 @@ def generate_password(foo, separator, words):
   for i in random_words:
     password = password + '{punctuation}{word0}'.format(punctuation=separator, word0=random_words[random_words.index(i)])
   
-  print(password)
+  return password
 
 '''
 def str2bool(v):

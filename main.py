@@ -1,4 +1,5 @@
 import argparse
+
 import passgen
 
 
@@ -14,7 +15,7 @@ parser.add_argument('--words', help='Number of words for the xk password')
 args = parser.parse_args()
 
 if args.type == 'xk':
-    options = ['-', 3]
+    options = ['-', 3] # Default options
     
     if args.sep:
         options[0] = args.sep
@@ -22,4 +23,6 @@ if args.type == 'xk':
     if args.words:
         options[1] = args.words
     
-    passgen.generate_password(args.caps, options[0], int(options[1]))
+    password = passgen.generate_password(args.caps, options[0], int(options[1])) # Generate password
+    
+    print(password)
