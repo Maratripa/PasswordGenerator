@@ -1,6 +1,7 @@
 import argparse
 import passgen
 
+output_decorator = 'Your generated password is: '
 
 parser = argparse.ArgumentParser()
 
@@ -24,4 +25,10 @@ if args.type == 'xk':
     
     password = passgen.generate_xk(args.caps, options[0], int(options[1])) # Generate password
     
-    print(password)
+    print(output_decorator + password)
+
+elif args.type == 'morph':
+    word = input('Type the word you would like to morph: ')
+    password = passgen.generate_morph(word)
+
+    print(output_decorator + password)

@@ -30,7 +30,7 @@ def generate_xk(foo, separator, words):
   
   return password
 
-def generate_transform_word(word):
+def generate_morph(word):
   # split_word = [char.lower() for char in word]
   split_word = list(word) 
   
@@ -41,12 +41,12 @@ def generate_transform_word(word):
                       'A':'4'
   } 
   
-  transformed_word_list = []
-  
   for w in split_word:
-    transformed_word_list.append(w)
     
     if w in transformations:
-      transformed_word_list[len(transformed_word_list)-1] = transformations[w]
+      split_word[split_word.index(w)] = transformations[w]
 
-  return ''.join(transformed_word_list)
+  return ''.join(split_word)
+
+if __name__ == '__main__':
+  print(generate_morph(input()))
