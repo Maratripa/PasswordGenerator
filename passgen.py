@@ -11,7 +11,7 @@ def generate_word_list():
   return word_list
 
 
-def generate_password(foo, separator, words):
+def generate_xk(foo, separator, words):
   
   word_list = generate_word_list()
 
@@ -30,44 +30,23 @@ def generate_password(foo, separator, words):
   
   return password
 
-'''
-def str2bool(v):
-  return v.lower() in ("true", "1")
-
-
-def run():
-  raw = input('Enter your command: ')
-  raw_list = raw.split()
-
-  options = ['random', False, '-', 3]
-
+def generate_transform_word(word):
+  # split_word = [char.lower() for char in word]
+  split_word = list(word) 
   
-  if len(raw_list) == 2:
-    if raw_list[1] in string.punctuation:
-      options[2] = raw_list[1]
-    
-    elif raw_list[1] in string.digits:
-      options[3] = raw_list[1]
+  transformations = {                 # Dictionary to list character transformations
+                      'l':'1', 
+                      'i':'!', 
+                      'o':'0', 
+                      'A':'4'
+  } 
   
-  elif len(raw_list) == 3:
-    if len(raw_list[1]) > 1 and raw_list[2] in string.punctuation:
-      options[1] = raw_list[1]
-      options[2] = raw_list[2]
+  transformed_word_list = []
+  
+  for w in split_word:
+    transformed_word_list.append(w)
     
-    elif raw_list[1] in string.punctuation and raw_list[2] in string.digits:
-      options[2] = raw_list[1]
-      options[3] = raw_list[2]
+    if w in transformations:
+      transformed_word_list[len(transformed_word_list)-1] = transformations[w]
 
-    elif len(raw_list[1]) > 1 and raw_list[2] in string.digits:
-      options[1] = raw_list[1]
-      options[3] = raw_list[2]
-
-  elif len(raw_list) == 4:
-    for i in raw_list:
-      options[raw_list.index(i)] = i
-
-
-  if raw_list[0] == 'random':
-    password = generate_password(str2bool(str(options[1])), options[2], int(options[3]))
-    print(password)
-'''
+  return ''.join(transformed_word_list)

@@ -1,5 +1,4 @@
 import argparse
-
 import passgen
 
 
@@ -23,6 +22,6 @@ if args.type == 'xk':
     if args.words:
         options[1] = args.words
     
-    password = passgen.generate_password(args.caps, options[0], int(options[1])) # Generate password
+    password = passgen.generate_xk(args.caps, options[0], int(options[1])) # Generate password
     
     print(password)
