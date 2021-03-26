@@ -11,9 +11,9 @@ $ python3 main.py xk
 ```
 
 ### Word morphing passwords
-'''
+```
 $ python3 main.py morph
-'''
+```
 
 ## Positional arguments
 * xk
