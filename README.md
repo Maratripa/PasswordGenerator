@@ -1,5 +1,5 @@
 # PasswordGenerator
-This is a XK Password Generator written in python. It still has a long way to go (adding new password formats and customization options).
+This is a Password Generator written in python. It still has a long way to go (adding new password formats and customization options).
 
 # Generating a password
 The program is bassed on argparse to run and generate a password.
